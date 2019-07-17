@@ -1,0 +1,41 @@
+<filesystem>
+
+    <folder name="Actions">
+        <folder name="Operators">
+            <file name="PyWindSpeedOpAction.instance">
+                <attr name="instanceCreate"
+                      methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="delegate" methodvalue="org.esa.snap.core.gpf.ui.DefaultOperatorAction.create"/>
+                <attr name="operatorName" stringvalue="wind_speed_op"/>
+                <attr name="displayName" stringvalue="Wind speed profile at turbine hub height"/>
+                <attr name="dialogTitle" stringvalue="Wind speed profile at turbine hub height"/>
+                <attr name="helpId" stringvalue="WindSpeedOpPyDoc"/>
+                <attr name="targetProductNameSuffix" stringvalue="_windspeedop"/>
+                <attr name="ShortDescription" stringvalue="This plugin adjusts wind speed over ground for S1 L2 OCN."/>
+            </file>
+        </folder>
+    </folder>
+
+    <folder name="Menu">
+        <folder name="Radar">
+            <folder name="SAR Applications">
+                <folder name="Ocean Applications">
+                    <file name="PyWindSpeedOpAction.shadow">
+                        <attr name="originalFile"
+                              stringvalue="Actions/Operators/PyWindSpeedOpAction.instance"/>
+                        <attr name="position" intvalue="10000"/>
+                    </file>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+
+    <folder name="Services">
+        <folder name="JavaHelp">
+            <file name="helpset.xml" url="helpset.xml">
+                <attr name="position" intvalue="29900"/>
+            </file>
+        </folder>
+    </folder>
+
+</filesystem>
