@@ -15,7 +15,9 @@ class WindSpeedOp:
         self.wind_band = None
 
     def initialize(self, context):
-        source_product = context.getSourceProduct('Name')
+        source_product = context.getSourceProduct()
+        if source_product is None:
+            raise RuntimeError("Source product is missing")
         print('wind_speed_op initialize: source product location is', source_product.getFileLocation())
 
         # Retrieve parameters defined in wind_speed_op-info.xml
@@ -48,7 +50,7 @@ class WindSpeedOp:
 
         # 2) get .._001_owiLat data
         owi_lat = source_product.getRasterDataNode(owi_parameters_inst.get_owi_lat_name())
-        if owi_lat == None:
+        if owi_lat is None:
             raise RuntimeError("Requires a Sentinel 1 Level 2 OCN source product: missing " +
                                owi_parameters_inst.get_owi_lat_name() + " band")
         owi_lat_image = owi_lat.getGeophysicalImage()
@@ -58,7 +60,7 @@ class WindSpeedOp:
 
         # 3) get .._001_owiLon data
         owi_lon = source_product.getRasterDataNode(owi_parameters_inst.get_owi_lon_name())
-        if owi_lon == None:
+        if owi_lon is None:
             raise RuntimeError("Requires a Sentinel 1 Level 2 OCN source product: missing " +
                                owi_parameters_inst.get_owi_lon_name() + " band")
         owi_lon_image = owi_lon.getGeophysicalImage()
