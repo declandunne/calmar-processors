@@ -16,6 +16,7 @@
     <modules>
         <module>calmar-ocean-op-java</module>
         <module>calmar-ocean-op-python</module>
+        <module>calmar-ocean-wind-energy-preprocess</module>
     </modules>
 
     <repositories>
