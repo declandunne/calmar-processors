@@ -230,9 +230,6 @@ public class WindEnergyMapOp extends PixelOperator {
     protected void computePixel(int x, int y, Sample[] sourceSamples, WritableSample[] targetSamples) {
         OwiParameters owiParametersInst = getOwiParameters();
 
-        // quality flag meanings = 0 -> good; 1 -> medium; 2-> low; 3 -> poor
-        int minAcceptedQuality = 1;
-
         // get land flag pixel
         double owiLandFlagPixel = sourceSamples[5].getDouble();
 
@@ -246,7 +243,7 @@ public class WindEnergyMapOp extends PixelOperator {
 
         // get wind speed, and assign no data based on land flag and wind quality
         double owiWindSpeedPixel = sourceSamples[2].getDouble();
-        if (owiLandFlagPixel == 1.0 || owiWindQualityPixel > minAcceptedQuality) {
+        if (owiLandFlagPixel == 1.0) {
             targetSamples[0].set(-999.0);
         } else {
             targetSamples[0].set(owiWindSpeedPixel);
@@ -254,7 +251,7 @@ public class WindEnergyMapOp extends PixelOperator {
 
         // get wind direction, and assign no data based on land flag and wind quality
         double owiWindDirectionPixel = sourceSamples[3].getDouble();
-        if (owiLandFlagPixel == 1.0 || owiWindQualityPixel > minAcceptedQuality) {
+        if (owiLandFlagPixel == 1.0) {
             targetSamples[1].set(-999.0);
         } else {
             targetSamples[1].set(owiWindDirectionPixel);
