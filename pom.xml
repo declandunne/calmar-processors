@@ -9,10 +9,6 @@
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <properties>
-        <snap.version>8.0.0-SNAPSHOT</snap.version>
-    </properties>
-
     <modules>
         <module>calmar-ocean-op-java</module>
         <module>calmar-ocean-op-python</module>
@@ -34,24 +30,5 @@
             </snapshots>
         </repository>
     </repositories>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-core</artifactId>
-            <version>${snap.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-gpf</artifactId>
-            <version>${snap.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>
